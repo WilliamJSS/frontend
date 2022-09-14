@@ -1,9 +1,10 @@
-import User from "./pages/user";
+import React from "react";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <User/>
+      <AppRoutes />
     </div>
   );
 }
