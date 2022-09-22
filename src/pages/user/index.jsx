@@ -12,6 +12,16 @@ export default function User() {
         })
     }, [])
 
+    async function handleDelete(id) {
+        try {
+            await api.delete(`/users/${id}`)
+            setUsers(users.filter(user => user.id !== id))
+        } catch (err) {
+            alert('Erro ao deletar')
+        }
+
+    }
+
     return (
         <div id="user-container">
             <h1>Lista de Usuários</h1>
@@ -29,7 +39,7 @@ export default function User() {
                         <p>{user.empresa}</p>
 
                         <div className='actions'>
-                            <button className="button" type="button">Deletar</button>
+                            <button className="button" onClick={() => handleDelete(user.id)} type="button">Deletar</button>
                             <Link className="button" to={`/update/${user.id}`}>Acessar</Link>
                         </div>
                     </li>
