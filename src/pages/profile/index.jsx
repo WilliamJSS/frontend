@@ -21,7 +21,7 @@ export default function Profile() {
                 setUser(...response.data)
             })
         }
-    })
+    },[id])
 
     function onSubmit(event) {
         event.preventDefault()
